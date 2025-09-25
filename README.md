@@ -19,7 +19,7 @@ o	Allow 80/tcp (HTTP)
 o	Deny 23/tcp (Telnet) (intentionally insecure service)
 •	Verified everything using Nmap from the Kali VM.
 
-![UFW Enabled](1 images ufw-enable.png)
+![UFW Enabled](imagen/1-ufw-enable.png)
 
 --------------------------------------------
 
@@ -35,7 +35,7 @@ sudo ufw deny 23/tcp
 ````bash
 Check status:sudo ufw status
 
-![UFW Rules](2 images ufw-enable.png)
+![UFW Rules](imagen/2-ufw-rules.png)
 
 ---------------------------------------------
 
@@ -50,7 +50,7 @@ Expected result:
 •	80/tcp → open (HTTP available)
 •	23/tcp → filtered/closed (blocked by firewall)
 
-![Nmap Open](3 images ufw-enable.png)
+![Nmap Open](imagens/3-nmap-open.png)
 
 ------------------------------------------------
 
@@ -61,7 +61,7 @@ Then I removed the rules and locked everything down:
 sudo ufw deny 22/tcp
 sudo ufw deny 80/tcp
 
-![UFW Deny](4 images ufw-enable.png)
+![UFW Deny](images/4-ufw-deny.png)
 
 Another Nmap scan showed:
 
@@ -70,7 +70,7 @@ Another Nmap scan showed:
 23/tcp filtered telnet
 80/tcp filtered http
 
-![Nmap Filtered](5 images ufw-enable.png)
+![Nmap Filtered](images/5-nmap-filtered.png)
 
 --------------------------------------------------
 
