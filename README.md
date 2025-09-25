@@ -19,31 +19,34 @@ o	Allow 80/tcp (HTTP)
 o	Deny 23/tcp (Telnet) (intentionally insecure service)
 •	Verified everything using Nmap from the Kali VM.
 
-![UFW Enabled](imagen/1-ufw-enable.png)
+![UFW Enabled](imagens/1-ufw-enable.png)
 
 --------------------------------------------
 
 Setting up Ubuntu (Defender)
 Activate UFW and add rules:
 
-````bash
+```bash
 sudo ufw enable
 sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw deny 23/tcp
+```
 
-````bash
+```bash
 Check status:sudo ufw status
+```
 
-![UFW Rules](imagen/2-ufw-rules.png)
+![UFW Rules](imagens/2-ufw-rules.png)
 
 ---------------------------------------------
 
 Testing from Kali (Attacker)
 From Kali, I ran:
 
-`````bash
+```bash
 nmap -p 22,23,80 192.168.100.10
+```
 
 Expected result:
 •	22/tcp → open (SSH available)
@@ -57,20 +60,22 @@ Expected result:
 Closing the Gates Again
 Then I removed the rules and locked everything down:
 
-`````bash
+```bash
 sudo ufw deny 22/tcp
 sudo ufw deny 80/tcp
+```
 
-![UFW Deny](images/4-ufw-deny.png)
+![UFW Deny](imagens/4-ufw-deny.png)
 
 Another Nmap scan showed:
 
-````bash
+```bash
 22/tcp filtered ssh
 23/tcp filtered telnet
 80/tcp filtered http
+```
 
-![Nmap Filtered](images/5-nmap-filtered.png)
+![Nmap Filtered](imagens/5-nmap-filtered.png)
 
 --------------------------------------------------
 
